@@ -5,6 +5,11 @@ import { StaticTokenDefinition } from './staticTokenDefinition'
 
 export enum ChainId {
   SEPOLIA = 11155111,
+  LUX_MAINNET = 96369,
+  LUX_TESTNET = 96368,
+  LUX_DEVNET = 96370,
+  ZOO_MAINNET = 200200,
+  ZOO_TESTNET = 200201,
 }
 
 // assemblyscript does not support string enums, hence these constants
@@ -30,6 +35,11 @@ const XLAYER_MAINNET_NETWORK_NAME = 'xlayer-mainnet'
 const MEGAETH_MAINNET_NETWORK_NAME = 'megaeth-mainnet'
 const LINEA_MAINNET_NETWORK_NAME = 'linea'
 const TEMPO_NETWORK_NAME = 'tempo'
+const LUX_NETWORK_NAME = 'lux'
+const LUX_TESTNET_NETWORK_NAME = 'lux-testnet'
+const LUX_DEVNET_NETWORK_NAME = 'lux-devnet'
+const ZOO_NETWORK_NAME = 'zoo'
+const ZOO_TESTNET_NETWORK_NAME = 'zoo-testnet'
 
 // Note: All token and pool addresses should be lowercased!
 export class SubgraphConfig {
@@ -762,6 +772,103 @@ export function getSubgraphConfig(): SubgraphConfig {
         symbol: 'pathUSD',
         name: 'PathUSD',
         decimals: BigInt.fromI32(6),
+      },
+    }
+  } else if (
+    selectedNetwork == LUX_NETWORK_NAME ||
+    selectedNetwork == LUX_TESTNET_NETWORK_NAME ||
+    selectedNetwork == LUX_DEVNET_NETWORK_NAME
+  ) {
+    return {
+      poolManagerAddress: '0x0000000000000000000000000000000000009010',
+      stablecoinWrappedNativePoolId: '', // will be set once first WLUX-stablecoin pool is created
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WLUX
+      minimumNativeLocked: BigDecimal.fromString('4'),
+      stablecoinAddresses: [
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // LUSD
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+      ],
+      whitelistTokens: [
+        '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WLUX
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // LUSD
+        '0x60e0a8167fc13de89348978860466c9cec24b9ba', // LETH
+        '0x1e48d32a4f5e9f08db9ae4959163300faf8a6c8e', // LBTC
+        '0x26b40f650156c7ebf9e087dd0dca181fe87625b7', // LSOL
+        '0x3141b94b89691009b950c96e97bff48e0c543e3c', // LTON
+        '0x0e4bd0dd67c15decfbbbdbbe07fc9d51d737693d', // LAVAX
+        '0x5e5290f350352768bd2bfc59c2da15dd04a7cb88', // LZOO
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+        '0x6edcf3645def09db45050638c41157d8b9fea1cf', // LBNB
+        '0x28bfc5dd4b7e15659e41190983e5fe3df1132bb9', // LPOL
+        '0x94f49d0f4c62bbe4238f4aaa9200287bea9f2976', // LBLAST
+        '0x0000000000000000000000000000000000000000', // Native LUX
+      ],
+      tokenOverrides: [
+        {
+          address: Address.fromString('0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e'),
+          symbol: 'WLUX',
+          name: 'Wrapped Lux',
+          decimals: BigInt.fromI32(18),
+        },
+        {
+          address: Address.fromString('0x848cff46eb323f323b6bbe1df274e40793d7f2c2'),
+          symbol: 'LUSD',
+          name: 'Lux USD',
+          decimals: BigInt.fromI32(18),
+        },
+        {
+          address: Address.fromString('0x8031e9b0d02a792cfefaa2bdca6e1289d385426f'),
+          symbol: 'USDC',
+          name: 'USD Coin',
+          decimals: BigInt.fromI32(6),
+        },
+        {
+          address: Address.fromString('0xdf1de693c31e2a5eb869c329529623556b20abf3'),
+          symbol: 'USDT',
+          name: 'Tether USD',
+          decimals: BigInt.fromI32(6),
+        },
+      ],
+      poolsToSkip: [],
+      poolMappings: [],
+      nativeTokenDetails: {
+        symbol: 'LUX',
+        name: 'Lux',
+        decimals: BigInt.fromI32(18),
+      },
+    }
+  } else if (
+    selectedNetwork == ZOO_NETWORK_NAME ||
+    selectedNetwork == ZOO_TESTNET_NETWORK_NAME
+  ) {
+    return {
+      poolManagerAddress: '0x0000000000000000000000000000000000009010',
+      stablecoinWrappedNativePoolId: '', // will be set once first WZOO-stablecoin pool is created
+      stablecoinIsToken0: false,
+      wrappedNativeAddress: '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WZOO
+      minimumNativeLocked: BigDecimal.fromString('4'),
+      stablecoinAddresses: [
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // LUSD
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+      ],
+      whitelistTokens: [
+        '0x4888e4a2ee0f03051c72d2bd3acf755ed3498b3e', // WZOO
+        '0x848cff46eb323f323b6bbe1df274e40793d7f2c2', // LUSD
+        '0xdf1de693c31e2a5eb869c329529623556b20abf3', // USDT
+        '0x8031e9b0d02a792cfefaa2bdca6e1289d385426f', // USDC
+        '0x0000000000000000000000000000000000000000', // Native ZOO
+      ],
+      tokenOverrides: [],
+      poolsToSkip: [],
+      poolMappings: [],
+      nativeTokenDetails: {
+        symbol: 'ZOO',
+        name: 'Zoo',
+        decimals: BigInt.fromI32(18),
       },
     }
   } else {

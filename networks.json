@@ -230,5 +230,55 @@
       "address": "0x3fc79444f8eacc1894775493ff3fa41f1e35ce11",
       "startBlock": 6606180
     }
+  },
+  "lux": {
+    "PoolManager": {
+      "address": "0x0000000000000000000000000000000000009010",
+      "startBlock": 1
+    },
+    "PositionManager": {
+      "address": "0x0000000000000000000000000000000000009011",
+      "startBlock": 1
+    }
+  },
+  "lux-testnet": {
+    "PoolManager": {
+      "address": "0x0000000000000000000000000000000000009010",
+      "startBlock": 1
+    },
+    "PositionManager": {
+      "address": "0x0000000000000000000000000000000000009011",
+      "startBlock": 1
+    }
+  },
+  "lux-devnet": {
+    "PoolManager": {
+      "address": "0x0000000000000000000000000000000000009010",
+      "startBlock": 1
+    },
+    "PositionManager": {
+      "address": "0x0000000000000000000000000000000000009011",
+      "startBlock": 1
+    }
+  },
+  "zoo": {
+    "PoolManager": {
+      "address": "0x0000000000000000000000000000000000009010",
+      "startBlock": 1
+    },
+    "PositionManager": {
+      "address": "0x0000000000000000000000000000000000009011",
+      "startBlock": 1
+    }
+  },
+  "zoo-testnet": {
+    "PoolManager": {
+      "address": "0x0000000000000000000000000000000000009010",
+      "startBlock": 1
+    },
+    "PositionManager": {
+      "address": "0x0000000000000000000000000000000000009011",
+      "startBlock": 1
+    }
   }
 }
