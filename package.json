@@ -1,7 +1,7 @@
 {
-  "name": "uniswap-v4-subgraph",
+  "name": "lux-v4-subgraph",
   "version": "1.0.0",
-  "repository": "https://github.com/Uniswap/v4-subgraph",
+  "repository": "https://github.com/luxfi/uni-v4-subgraph",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "lint": "eslint . --ext .ts",
@@ -14,7 +14,12 @@
     "test": "graph test -d",
     "test:no-tty": "docker run -i --rm --mount type=bind,source=$INIT_CWD,target=/matchstick matchstick",
     "prepare": "husky install",
-    "generate-subgraph": "ts-node scripts/generate-subgraph.ts"
+    "generate-subgraph": "ts-node scripts/generate-subgraph.ts",
+    "deploy-lux": "graph deploy lux/uniswap-v4 --ipfs http://graph-ipfs.lux-mainnet.svc:5001 --node http://graph-node.lux-mainnet.svc:8020",
+    "deploy-lux-testnet": "graph deploy lux-testnet/uniswap-v4 --ipfs http://graph-ipfs.lux-testnet.svc:5001 --node http://graph-node.lux-testnet.svc:8020",
+    "deploy-lux-devnet": "graph deploy lux-devnet/uniswap-v4 --ipfs http://graph-ipfs.lux-devnet.svc:5001 --node http://graph-node.lux-devnet.svc:8020",
+    "deploy-zoo": "graph deploy zoo/uniswap-v4 --ipfs http://graph-ipfs.lux-mainnet.svc:5001 --node http://graph-node.lux-mainnet.svc:8020",
+    "deploy-zoo-testnet": "graph deploy zoo-testnet/uniswap-v4 --ipfs http://graph-ipfs.lux-testnet.svc:5001 --node http://graph-node.lux-testnet.svc:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.64.1",

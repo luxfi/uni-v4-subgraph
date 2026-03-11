@@ -1,18 +1,17 @@
 specVersion: 0.0.4
-description: Uniswap is a decentralized protocol for automated token exchange on Ethereum.
-repository: https://github.com/Uniswap/v4-subgraph
+description: Lux DEX v4 - Native decentralized exchange with precompile-based pool management.
+repository: https://github.com/luxfi/uni-v4-subgraph
 schema:
   file: ./schema.graphql
 features:
   - nonFatalErrors
-  - grafting
 dataSources:
   - source:
       abi: PoolManager
-      address: "0x248083fb965359d82b06c1f5322480dcfc1ad857"
-      startBlock: 28974969
+      address: "0x0000000000000000000000000000000000009010"
+      startBlock: 1
     name: PoolManager
-    network: linea
+    network: lux
     kind: ethereum/contract
     mapping:
       kind: ethereum/events
@@ -31,6 +30,8 @@ dataSources:
           file: ./abis/ERC20NameBytes.json
         - name: PoolManager
           file: ./abis/PoolManager.json
+        - name: AggregatorHook
+          file: ./abis/AggregatorHook.json
       eventHandlers:
         - event: Initialize(indexed bytes32,indexed address,indexed
             address,uint24,int24,address,uint160,int24)
@@ -43,10 +44,10 @@ dataSources:
           handler: handleSwap
   - source:
       abi: PositionManager
-      address: "0xddcad5775b2816a87495f207731b3571d7ee3c76"
-      startBlock: 28974972
+      address: "0x0000000000000000000000000000000000009011"
+      startBlock: 1
     name: PositionManager
-    network: linea
+    network: lux
     kind: ethereum/contract
     mapping:
       kind: ethereum/events
