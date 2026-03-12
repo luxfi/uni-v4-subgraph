@@ -1,10 +1,11 @@
 specVersion: 0.0.4
-description: Lux DEX v4 - Native decentralized exchange with precompile-based pool management.
-repository: https://github.com/luxfi/uni-v4-subgraph
+description: Uniswap is a decentralized protocol for automated token exchange on Ethereum.
+repository: https://github.com/Uniswap/v4-subgraph
 schema:
   file: ./schema.graphql
 features:
   - nonFatalErrors
+  - grafting
 dataSources:
   - source:
       abi: PoolManager
