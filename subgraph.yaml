@@ -12,7 +12,7 @@ dataSources:
       address: "0x0000000000000000000000000000000000009010"
       startBlock: 1
     name: PoolManager
-    network: lux
+    network: liquidity
     kind: ethereum/contract
     mapping:
       kind: ethereum/events
@@ -48,7 +48,7 @@ dataSources:
       address: "0x0000000000000000000000000000000000009011"
       startBlock: 1
     name: PositionManager
-    network: lux
+    network: liquidity
     kind: ethereum/contract
     mapping:
       kind: ethereum/events
