@@ -1,4 +1,4 @@
-# uni-v4-subgraph — AI Assistant Context
+# uni-v4-subgraph
 
 # Uniswap V4 Subgraph
 
