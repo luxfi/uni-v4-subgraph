@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="uni-v4-subgraph" width="880"></p>
+
 # Uniswap V4 Subgraph
 
 ### Running Unit Tests
